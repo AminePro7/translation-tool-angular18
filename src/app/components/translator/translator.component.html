@@ -1,0 +1,29 @@
+<div class="container">
+  <mat-card class="translation-card">
+    <mat-card-header>
+      <mat-card-title>Translation Tool</mat-card-title>
+      <mat-card-subtitle>English to French</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="translation-form">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Enter English text</mat-label>
+          <textarea matInput [(ngModel)]="sourceText" rows="4" placeholder="Type or paste your text here..."></textarea>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="translate()" [disabled]="isLoading || !sourceText.trim()">
+          <span *ngIf="!isLoading">Translate</span>
+          <mat-spinner diameter="20" *ngIf="isLoading"></mat-spinner>
+        </button>
+
+        <div class="error-message" *ngIf="error">{{ error }}</div>
+
+        <mat-form-field appearance="fill" class="full-width" *ngIf="translatedText">
+          <mat-label>French translation</mat-label>
+          <textarea matInput [value]="translatedText" rows="4" readonly></textarea>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

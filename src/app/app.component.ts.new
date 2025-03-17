@@ -1,0 +1,10 @@
+import { Component } from '@angular/core';
+import { TranslatorComponent } from './components/translator/translator.component';
+
+@Component({
+  selector: 'app-root',
+  template: '<app-translator></app-translator>',
+  standalone: true,
+  imports: [TranslatorComponent]
+})
+export class AppComponent {}
